@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "710774489946",
+    "project_id": "currency-gold-5565f",
+    "storage_bucket": "currency-gold-5565f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710774489946:android:646b0aafa11379909d6963",
+        "android_client_info": {
+          "package_name": "com.example.currencyandgold"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710774489946-84mk1anccjtj5le2ctfinurtea9528ck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3MIBzZlIdXqFhBdyPFOgXZ7ZmNbQZ520"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710774489946-84mk1anccjtj5le2ctfinurtea9528ck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
