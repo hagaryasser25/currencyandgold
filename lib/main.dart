@@ -6,6 +6,7 @@ import 'package:currencyandgold/screens/admin/admin_currency.dart';
 import 'package:currencyandgold/screens/admin/admin_gold.dart';
 import 'package:currencyandgold/screens/admin/admin_home.dart';
 import 'package:currencyandgold/screens/admin/admin_login.dart';
+import 'package:currencyandgold/screens/admin/users_app.dart';
 import 'package:currencyandgold/screens/auth/login.dart';
 import 'package:currencyandgold/screens/user/homepage.dart';
 import 'package:currencyandgold/screens/user/openscreen.dart';
@@ -73,6 +74,7 @@ class MyApp extends StatelessWidget {
           AddCompany.routeName: (ctx) => AddCompany(),
           AdminCompany.routeName: (ctx) => AdminCompany(),
           UserCompany.routeName: (ctx) => UserCompany(),
+          UsersApp.routeName: (ctx) => UsersApp(),
         });
   }
 }

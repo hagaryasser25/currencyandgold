@@ -34,7 +34,10 @@ class _AdminGoldPageState extends State<AdminGoldPage> {
                   onPressed: () {
                     Navigator.pushNamed(context, AdminHomePage.routeName);
                   },
-                  icon: Icon(Icons.arrow_forward, color: Colors.black,)),
+                  icon: Icon(
+                    Icons.arrow_forward,
+                    color: Colors.black,
+                  )),
             ),
           ],
         ),
@@ -161,6 +164,38 @@ class _AdminGoldPageState extends State<AdminGoldPage> {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
                                 return AdminGoldDetails(
+                                  category: '14',
+                                );
+                              }));
+                            },
+                            icon: Icon(Icons.ac_unit),
+                            label: Text("عيار 14")),
+                      ),
+                    )),
+                    Expanded(
+                      child: SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: ElevatedButton.icon(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.amber.shade500),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        side: BorderSide(
+                                            color: Colors.blue.shade900)))),
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return AdminGoldDetails(
                                   category: '24',
                                 );
                               }));
@@ -168,10 +203,84 @@ class _AdminGoldPageState extends State<AdminGoldPage> {
                             icon: Icon(Icons.ac_unit),
                             label: Text("عيار 24")),
                       ),
-                    )),
+                    ),
                   ],
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: ElevatedButton.icon(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.amber.shade500),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        side: BorderSide(
+                                            color: Colors.blue.shade900)))),
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return AdminGoldDetails(
+                                  category: 'سبيكة ذهب ا كيلو',
+                                );
+                              }));
+                            },
+                            icon: Icon(Icons.ac_unit),
+                            label: Text("السبائك")),
+                      ),
+                    )),
+                    Expanded(
+                      child: SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: ElevatedButton.icon(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.amber.shade500),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        side: BorderSide(
+                                            color: Colors.blue.shade900)))),
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return AdminGoldDetails(
+                                  category: 'جنيه ذهب عيار 21',
+                                );
+                              }));
+                            },
+                            icon: Icon(Icons.ac_unit),
+                            label: Text("الجنيه الذهب")),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 70,)
             ],
           ),
         ),

@@ -6,8 +6,9 @@ class Users {
   String? phoneNumber;
   String? fullName;
   String? dt;
+  String? imageUrl;
 
-  Users({this.email, this.uid, this.phoneNumber, this.fullName, this.dt});
+  Users({this.email, this.uid, this.phoneNumber, this.fullName, this.dt,this.imageUrl});
 
   Users.fromSnapshot(DataSnapshot dataSnapshot) {
     uid = (dataSnapshot.child("uid").value.toString());
@@ -15,5 +16,6 @@ class Users {
     fullName = (dataSnapshot.child("fullName").value.toString());
     phoneNumber = (dataSnapshot.child("phoneNumber").value.toString());
     dt = (dataSnapshot.child("dt").value.toString());
+    imageUrl = (dataSnapshot.child("imageUrl").value.toString());
   }
 }

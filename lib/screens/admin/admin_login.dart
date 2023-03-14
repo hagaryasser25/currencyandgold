@@ -40,7 +40,7 @@ class _AdminLoginState extends State<AdminLogin> {
                       bottomLeft: Radius.circular(50),
                     ),
                     image: new DecorationImage(
-                      image: new ExactAssetImage('assets/images/jojo.PNG'),
+                      image: new ExactAssetImage('assets/images/home.jfif'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -95,12 +95,13 @@ class _AdminLoginState extends State<AdminLogin> {
                         padding:
                             EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                         child: TextField(
+                            obscureText: true,
                             controller: passwordController,
                             style: TextStyle(
                                 fontFamily: "yel",
                                 color: Colors.amber.shade500),
                             // controller: addRoomProvider.bednocon,
-                            keyboardType: TextInputType.text,
+
                             decoration: new InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
@@ -151,18 +152,16 @@ class _AdminLoginState extends State<AdminLogin> {
                                   return;
                                 }
 
-                                   if (email != 'admin@gmail.com') {
+                                if (email != 'admin@gmail.com') {
                                   Fluttertoast.showToast(
-                                      msg:
-                                          'Wrong email or password');
+                                      msg: 'Wrong email or password');
 
                                   return;
                                 }
 
-                                 if (password != '123456789') {
+                                if (password != '123456789') {
                                   Fluttertoast.showToast(
-                                      msg:
-                                          'Wrong email or password');
+                                      msg: 'Wrong email or password');
 
                                   return;
                                 }
@@ -201,7 +200,6 @@ class _AdminLoginState extends State<AdminLogin> {
                               }),
                         ),
                       ),
-
                     ],
                   ),
                 ),

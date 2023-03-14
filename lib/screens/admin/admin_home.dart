@@ -1,11 +1,11 @@
 import 'package:currencyandgold/screens/admin/admin_company.dart';
 import 'package:currencyandgold/screens/admin/admin_currency.dart';
 import 'package:currencyandgold/screens/admin/admin_gold.dart';
+import 'package:currencyandgold/screens/admin/users_app.dart';
 import 'package:currencyandgold/screens/user/openscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 class AdminHomePage extends StatefulWidget {
   static const routeName = '/adminHomeScreen';
@@ -22,23 +22,60 @@ class _AdminHomePageState extends State<AdminHomePage> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Align(
-            alignment: Alignment.center,
-            child: Text("الصفحة الرئيسية", style: TextStyle(color: Colors.black))),
+              alignment: Alignment.center,
+              child: Text("الصفحة الرئيسية",
+                  style: TextStyle(color: Colors.black))),
           backgroundColor: Colors.amber.shade500,
-          actions: [],
+          actions: [
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            
+                            content: Text(
+                              'هل أنت متأكد من تسجيل الخروج؟',
+                              textAlign: TextAlign.right,
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  FirebaseAuth.instance.signOut();
+                                  Navigator.pushNamed(
+                                      context, OpenScreen.routeName);
+                                },
+                                child: Text('نعم'),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('لا'),
+                              ),
+                            ],
+                          );
+                        });
+                  },
+                  icon: Icon(Icons.logout, color: Colors.black)),
+            ),
+          ],
         ),
         body: Container(
           color: Colors.black,
           child: ListView(
             children: [
               Image(
-                image: AssetImage('assets/images/jojo.PNG'),
+                image: AssetImage('assets/images/home.jfif',),
                 width: double.infinity,
               ),
               Center(
                   child: Text(
-                "الخدمات لمتاحة",
+                "الخدمات المتاحة",
                 style: TextStyle(fontSize: 30, color: Colors.amber.shade500),
               )),
               Padding(
@@ -135,7 +172,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
                                         side: BorderSide(
                                             color: Colors.blue.shade900)))),
                             onPressed: () {
-                               Navigator.of(context).push(MaterialPageRoute(
+                              Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => AdminCompany()));
                             },
                             icon: Icon(Icons.ac_unit),
@@ -163,33 +200,10 @@ class _AdminHomePageState extends State<AdminHomePage> {
                                         side: BorderSide(
                                             color: Colors.blue.shade900)))),
                             onPressed: () async {
-                              showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      title: Text('Confirmation!'),
-                                      content: Text('Are you sure to logout?'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () {
-                                            FirebaseAuth.instance.signOut();
-                                            Navigator.pushNamed(
-                                                context, OpenScreen.routeName);
-                                          },
-                                          child: Text('Yes'),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text('No'),
-                                        ),
-                                      ],
-                                    );
-                                  });
+                              Navigator.pushNamed(context, UsersApp.routeName);
                             },
                             icon: Icon(Icons.ac_unit),
-                            label: Text("خروج")),
+                            label: Text("بيانات المستخدمين")),
                       ),
                     ),
                   ],

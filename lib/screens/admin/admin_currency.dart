@@ -23,6 +23,7 @@ class _AdminCurrencyState extends State<AdminCurrency> {
   late FirebaseApp app;
   List<Currency> currencyList = [];
   List<String> keyslist = [];
+  List<String> searchList = [];
 
   @override
   void didChangeDependencies() {
@@ -39,6 +40,7 @@ class _AdminCurrencyState extends State<AdminCurrency> {
       print(event.snapshot.value);
       Currency p = Currency.fromJson(event.snapshot.value);
       keyslist.add(event.snapshot.key.toString());
+      searchList.add(event.snapshot.key.toString());
       print(keyslist);
       setState(() {});
     });
@@ -49,6 +51,7 @@ class _AdminCurrencyState extends State<AdminCurrency> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
           title: Align(
               alignment: Alignment.center,
@@ -63,7 +66,7 @@ class _AdminCurrencyState extends State<AdminCurrency> {
                   onPressed: () {
                     Navigator.pushNamed(context, AdminHomePage.routeName);
                   },
-                  icon: Icon(Icons.arrow_forward,color: Colors.black)),
+                  icon: Icon(Icons.arrow_forward, color: Colors.black)),
             ),
           ],
         ),
@@ -74,71 +77,119 @@ class _AdminCurrencyState extends State<AdminCurrency> {
           },
           child: Icon(Icons.add),
         ),
-        body: Container(
-          color: Colors.black,
-          child: ListView.builder(
-            itemCount: keyslist.length,
-            itemBuilder: (BuildContext context, int index) {
-              return InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return AdminCurrencyDetails(
-                      category: '${keyslist[index].toString()}',
-                    );
-                  }));
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                    width: 350,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.amber.shade100,
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
+        body: Column(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                right: 20,
+                left: 20,
+              ),
+              child: TextField(
+                  onChanged: (char) {
+                    setState(() {
+                      if (char.isEmpty) {
+                        setState(() {
+                          keyslist = searchList;
+                        });
+                      } else {
+                        keyslist = [];
+                        for (String model in searchList) {
+                          if (model.contains(char)) {
+                            keyslist.add(model);
+                          }
+                        }
+                        setState(() {});
+                      }
+                    });
+                  },
+                  style: TextStyle(
+                      fontFamily: "yel", color: Colors.amber.shade500),
+                  keyboardType: TextInputType.text,
+                  decoration: new InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.amber.shade600),
                     ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: Container(
-                            width: 80,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15.0)),
-                              image: DecorationImage(
-                                image: AssetImage("assets/images/cur.jpg"),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            /* add child content here */
-                          ),
+                    hintText: "ابحث بالأسم",
+                    hintStyle: TextStyle(color: Colors.amber.shade500),
+                    labelStyle: TextStyle(color: Colors.amber.shade500),
+                  )),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: keyslist.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return AdminCurrencyDetails(
+                          category: '${keyslist[index].toString()}',
+                        );
+                      }));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        width: 350,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.amber.shade100,
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
-                        Column(
-                          //  mainAxisAlignment: MainAxisAlignment.end,
+                        child: Row(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 10),
-                              child: new Align(
-                                  alignment: Alignment.center,
-                                  child: new Text(
-                                    keyslist[index].toString(),
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold),
-                                  )),
+                              padding:
+                                  const EdgeInsets.only(left: 20, right: 20),
+                              child: Container(
+                                width: 80,
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15.0)),
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/images/cur.jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                /* add child content here */
+                              ),
                             ),
+                            Column(
+                              //  mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: new Align(
+                                      alignment: Alignment.center,
+                                      child: new Text(
+                                        keyslist[index].toString(),
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                ),
+                              ],
+                            )
                           ],
-                        )
-                      ],
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              );
-            },
-          ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

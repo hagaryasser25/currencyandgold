@@ -52,19 +52,22 @@ class _AddGoldState extends State<AddGold> {
                     // Step 3.
                     value: dropdownValue,
                     icon: Padding(
-                      padding: EdgeInsets.only(
-                        right: 5
-                      ),
+                      padding: EdgeInsets.only(right: 5),
                       child: Icon(Icons.arrow_drop_down,
                           color: Colors.amber.shade500),
                     ),
 
                     // Step 4.
-                    items: <String>['18', '21', '24']
-                        .map<DropdownMenuItem<String>>((String value) {
+                    items: <String>[
+                      '18',
+                      '21',
+                      '24',
+                      '14',
+                      'جنيه ذهب عيار 21',
+                      'سبيكة ذهب ا كيلو'
+                    ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
-                        
                         child: Center(
                           child: Text(
                             value,

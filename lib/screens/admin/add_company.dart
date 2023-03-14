@@ -177,7 +177,8 @@ class _AddCompanyState extends State<AddCompany> {
                   child: Text('حفظ'))
             ]),
           ),
-        ));
+        )
+        );
   }
 }
 

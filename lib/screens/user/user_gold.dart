@@ -1,5 +1,5 @@
 import 'package:currencyandgold/screens/admin/add_gold.dart';
-import 'package:currencyandgold/screens/admin/adminGold_details.dart';
+
 import 'package:currencyandgold/screens/user/userGold_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -55,14 +55,14 @@ class _UserGoldPageState extends State<UserGoldPage> {
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
                                         Colors.amber.shade500),
-                                shape:
-                                    MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(20),
-                                                topRight: Radius.circular(20)),
-                                            side: BorderSide(
-                                                color: Colors.blue.shade900)))),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        side: BorderSide(
+                                            color: Colors.blue.shade900)))),
                             onPressed: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
@@ -87,16 +87,16 @@ class _UserGoldPageState extends State<UserGoldPage> {
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
                                         Colors.amber.shade500),
-                                shape:
-                                    MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(20),
-                                                topRight: Radius.circular(20)),
-                                            side: BorderSide(
-                                                color: Colors.blue.shade900)))),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        side: BorderSide(
+                                            color: Colors.blue.shade900)))),
                             onPressed: () {
-                               Navigator.push(context,
+                              Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
                                 return UserGoldDetails(
                                   category: '21',
@@ -128,16 +128,48 @@ class _UserGoldPageState extends State<UserGoldPage> {
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
                                         Colors.amber.shade500),
-                                shape:
-                                    MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(20),
-                                                topRight: Radius.circular(20)),
-                                            side: BorderSide(
-                                                color: Colors.blue.shade900)))),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        side: BorderSide(
+                                            color: Colors.blue.shade900)))),
                             onPressed: () {
-                               Navigator.push(context,
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return UserGoldDetails(
+                                  category: '14',
+                                );
+                              }));
+                            },
+                            icon: Icon(Icons.ac_unit),
+                            label: Text("عيار 14")),
+                      ),
+                    )),
+                    Expanded(
+                      child: SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: ElevatedButton.icon(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.amber.shade500),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        side: BorderSide(
+                                            color: Colors.blue.shade900)))),
+                            onPressed: () {
+                              Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
                                 return UserGoldDetails(
                                   category: '24',
@@ -147,10 +179,84 @@ class _UserGoldPageState extends State<UserGoldPage> {
                             icon: Icon(Icons.ac_unit),
                             label: Text("عيار 24")),
                       ),
-                    )),
+                    ),
                   ],
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: ElevatedButton.icon(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.amber.shade500),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        side: BorderSide(
+                                            color: Colors.blue.shade900)))),
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return UserGoldDetails(
+                                  category: 'سبيكة ذهب ا كيلو',
+                                );
+                              }));
+                            },
+                            icon: Icon(Icons.ac_unit),
+                            label: Text("السبائك")),
+                      ),
+                    )),
+                    Expanded(
+                      child: SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: ElevatedButton.icon(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.amber.shade500),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        side: BorderSide(
+                                            color: Colors.blue.shade900)))),
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return UserGoldDetails(
+                                  category: 'جنيه ذهب عيار 21',
+                                );
+                              }));
+                            },
+                            icon: Icon(Icons.ac_unit),
+                            label: Text("الجنيه الذهب")),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 70,)
             ],
           ),
         ),

@@ -118,7 +118,7 @@ class _AdminCompanyDetailsState extends State<AdminCompanyDetails> {
                                   child: new Text(
                                     'اليوم : ${getDate(date!)}',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 18,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   )),
@@ -130,7 +130,7 @@ class _AdminCompanyDetailsState extends State<AdminCompanyDetails> {
                                   child: new Text(
                                     'سعر السهم : ${companyList[index].companyPrice.toString()}  ',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 18,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   )),

@@ -118,7 +118,7 @@ class _AdminCurrencyDetailsState extends State<AdminCurrencyDetails> {
                                   child: new Text(
                                     'اليوم : ${getDate(date!)}',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 17,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   )),
@@ -130,7 +130,7 @@ class _AdminCurrencyDetailsState extends State<AdminCurrencyDetails> {
                                   child: new Text(
                                     'السعر بالجنيه: ${currencyList[index].currencyPrice.toString()}   ',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 17,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   )),

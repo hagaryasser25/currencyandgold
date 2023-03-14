@@ -21,39 +21,18 @@ class AddCurrency extends StatefulWidget {
 class _AddCurrencyState extends State<AddCurrency> {
   var priceController = TextEditingController();
   var categoryController = TextEditingController();
-  String dropdownValue = 'الجنيه الاسترلينى';
+   String dropdownValue = 'الجنيه الأسترلينى';
   late DatabaseReference base;
   late FirebaseDatabase database;
   late FirebaseApp app;
-  List<Currency> currencyList = [];
-  List<String> keyslist = [];
 
-   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    fetchCurrency();
-  }
-
-  @override
-  void fetchCurrency() async {
-    app = await Firebase.initializeApp();
-    database = FirebaseDatabase(app: app);
-    base = database.reference().child("currency");
-    base.onChildAdded.listen((event) {
-      print(event.snapshot.value);
-      Currency p = Currency.fromJson(event.snapshot.value);
-      keyslist.add(event.snapshot.key.toString());
-      print(keyslist);
-      setState(() {});
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           leading: BackButton(color: Colors.black),
-          title: Text('اضافة سعر العملات',
-          style: TextStyle(color: Colors.black)),
+          title:
+              Text('اضافة سعر العملات', style: TextStyle(color: Colors.black)),
           backgroundColor: Colors.amber.shade500,
         ),
         body: Container(
@@ -61,7 +40,7 @@ class _AddCurrencyState extends State<AddCurrency> {
           child: Padding(
             padding: EdgeInsets.only(top: 20, right: 10, left: 10, bottom: 20),
             child: Column(children: [
-               Theme(
+              Theme(
                 data: Theme.of(context).copyWith(
                   canvasColor: Colors.black,
                 ),
@@ -82,19 +61,45 @@ class _AddCurrencyState extends State<AddCurrency> {
                     // Step 3.
                     value: dropdownValue,
                     icon: Padding(
-                      padding: EdgeInsets.only(
-                        right: 5
-                      ),
+                      padding: EdgeInsets.only(right: 5),
                       child: Icon(Icons.arrow_drop_down,
                           color: Colors.amber.shade500),
                     ),
 
                     // Step 4.
-                    items: keyslist
-                        .map<DropdownMenuItem<String>>((String value) {
+                    items: <String>[
+                      'الجنيه الأسترلينى',
+                      'الجنيه السوداني',
+                      'الدرهم المغربي',
+                      'الدولار',
+                      'الدينار الكويتى',
+                      'الروبل الروسي',
+                      'الروبية الهندي',
+                      'الريال السعودي',
+                      'الريال العماني',
+                      'الريال القطري',
+                      'اليورو',
+                      'الريال اليمنى',
+                      'فرنك سويسري',
+                      'فرنك چيبوتي',
+                      'ليره السورية',
+                      'درهم مغربى',
+                      'شلن صومالى',
+                      'الريال البرازيلى',
+                      'ون كوريا الجنوبية',
+                      'البيزو التشيلي',
+                      'الكرونا النرويجية',
+                      'الدينار الليبى',
+                      'الين اليابانى',
+                      'الدينار التونسى',
+                      'الدينار البحرينى',
+                      'الدينار الجزائرى',
+                      'الدينار العراقى',
+                      'الدولار الكندى',
+                      'الدينار الأردنى'
+                    ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
-                        
                         child: Center(
                           child: Text(
                             value,

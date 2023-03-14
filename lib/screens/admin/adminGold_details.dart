@@ -58,7 +58,7 @@ class _AdminGoldDetailsState extends State<AdminGoldDetails> {
           title: Align(
               alignment: Alignment.center,
               child: Text(
-                " اسعار عيار ${widget.category}",
+                "الأسعار",
                 style: TextStyle(color: Colors.black),
               )),
           backgroundColor: Colors.amber.shade500,
@@ -99,7 +99,7 @@ class _AdminGoldDetailsState extends State<AdminGoldDetails> {
                         Padding(
                           padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Container(
-                            width: 80,
+                            width: 68,
                             height: 80,
                             decoration: BoxDecoration(
                               shape: BoxShape.rectangle,
@@ -123,7 +123,7 @@ class _AdminGoldDetailsState extends State<AdminGoldDetails> {
                                   child: new Text(
                                     'اليوم : ${getDate(date!)}',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 17,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   )),
@@ -135,7 +135,7 @@ class _AdminGoldDetailsState extends State<AdminGoldDetails> {
                                   child: new Text(
                                     'سعر العيار: ${goldList[index].price.toString()}      ',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 17,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   )),

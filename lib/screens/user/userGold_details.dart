@@ -60,7 +60,7 @@ class _UserGoldDetailsState extends State<UserGoldDetails> {
       textDirection: ui.TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(" اسعار عيار ${widget.category}"),
+          title: Text("الأسعار"),
           backgroundColor: Colors.amber.shade500,
         ),
         body: Container(

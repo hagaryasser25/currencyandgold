@@ -54,14 +54,13 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Align(
-              alignment: Alignment.center,
-              child: Text("الصفحة الرئيسية",
-                  style: TextStyle(color: Colors.black))),
-          backgroundColor: Colors.amber.shade500,
-          actions: [],
-          iconTheme: IconThemeData(color: Colors.black)
-        ),
+            title: Align(
+                alignment: Alignment.center,
+                child: Text("الصفحة الرئيسية",
+                    style: TextStyle(color: Colors.black))),
+            backgroundColor: Colors.amber.shade500,
+            actions: [],
+            iconTheme: IconThemeData(color: Colors.black)),
         drawer: Drawer(
           child: FutureBuilder(
             future: getUserData(),
@@ -87,7 +86,7 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
                               backgroundColor: Colors.amber.shade500,
                               radius: 30,
                               backgroundImage:
-                                  AssetImage('assets/images/person.png'),
+                                  NetworkImage('${currentUser.imageUrl}'),
                             ),
                           ),
                           SizedBox(height: 10),
@@ -134,30 +133,32 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
                             splashColor: Theme.of(context).splashColor,
                             child: ListTile(
                               onTap: () {
-                                 showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      title: Text('Confirmation!'),
-                                      content: Text('Are you sure to logout?'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () {
-                                            FirebaseAuth.instance.signOut();
-                                            Navigator.pushNamed(
-                                                context, OpenScreen.routeName);
-                                          },
-                                          child: Text('Yes'),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text('No'),
-                                        ),
-                                      ],
-                                    );
-                                  });
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        title: Text(
+                                            'نتمنى أن نكون قد وفرنا لك المساعدة',textAlign: TextAlign.right,),
+                                        content: Text(
+                                            'هل أنت متأكد من تسجيل الخروج؟',textAlign: TextAlign.right,),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              FirebaseAuth.instance.signOut();
+                                              Navigator.pushNamed(context,
+                                                  OpenScreen.routeName);
+                                            },
+                                            child: Text('نعم'),
+                                          ),
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('لا'),
+                                          ),
+                                        ],
+                                      );
+                                    });
                               },
                               title: Text('تسجيل الخروج'),
                               leading: Icon(Icons.exit_to_app_rounded),
@@ -173,12 +174,12 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
           child: ListView(
             children: [
               Image(
-                image: AssetImage('assets/images/jojo.PNG'),
+                image: AssetImage('assets/images/home.jfif'),
                 width: double.infinity,
               ),
               Center(
                   child: Text(
-                "الخدمات لمتاحة",
+                "الخدمات المتاحة",
                 style: TextStyle(fontSize: 30, color: Colors.amber.shade500),
               )),
               Padding(
@@ -307,8 +308,10 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
                                   context: context,
                                   builder: (context) {
                                     return AlertDialog(
-                                      title: Text('Confirmation!'),
-                                      content: Text('Are you sure to logout?'),
+                                      title: Text(
+                                          'نتمنى أن نكون قد وفرنا لك المساعدة', textAlign: TextAlign.right,),
+                                      content:
+                                          Text('هل أنت متأكد من تسجيل الخروج؟',textAlign: TextAlign.right,),
                                       actions: [
                                         TextButton(
                                           onPressed: () {
@@ -316,13 +319,13 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
                                             Navigator.pushNamed(
                                                 context, OpenScreen.routeName);
                                           },
-                                          child: Text('Yes'),
+                                          child: Text('نعم'),
                                         ),
                                         TextButton(
                                           onPressed: () {
                                             Navigator.pop(context);
                                           },
-                                          child: Text('No'),
+                                          child: Text('لا'),
                                         ),
                                       ],
                                     );
